@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%; /* #F7F7F7 */
+    --foreground: 220 15% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 14%;
+
+    --primary: 44 100% 59%; /* McDonald's Yellow */
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 4 77% 48%; /* McDonald's Red */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 215 15% 40%;
+
+    --accent: 4 77% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 44 100% 59%;
+
+    --radius: 1rem;
+
+    --brand-50: 44 100% 95%;
+    --brand-100: 44 100% 85%;
+    --brand-200: 44 100% 75%;
+    --brand-500: 44 100% 59%;
+    --brand-600: 44 100% 50%;
+    --brand-700: 44 100% 40%;
+
+    --surface-50: 0 0% 98%;
+    --surface-100: 0 0% 97%;
+    --surface-200: 0 0% 95%;
+    --surface-300: 0 0% 85%;
+    --surface-400: 0 0% 70%;
+    --surface-500: 0 0% 50%;
+    --surface-600: 0 0% 40%;
+    --surface-700: 0 0% 30%;
+    --surface-800: 0 0% 20%;
+    --surface-900: 0 0% 10%;
+
+    --shadow-soft: 0 0 0 1px rgba(0,0,0,.04), 0 2px 4px rgba(0,0,0,.02), 0 8px 16px rgba(0,0,0,.04);
+    --shadow-elevated: 0 0 0 1px rgba(0,0,0,.05), 0 4px 8px rgba(0,0,0,.04), 0 16px 32px rgba(0,0,0,.06);
+
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 220 15% 14%;
+    --sidebar-primary: 44 100% 59%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 4 77% 48%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 44 100% 59%;
+
+    --neon-glow: 44 100% 59%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 0 0% 98%;
+    --card: 220 15% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 15% 14%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 43 100% 53%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 353 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 353 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 43 100% 53%;
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 43 100% 53%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 353 100% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 43 100% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .font-mono {
+    font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-dark {
+    background: rgba(10, 15, 25, 0.85);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, hsl(44, 100%, 59%), hsl(4, 77%, 48%));
+  }
+
+  .gradient-brand-light {
+    background: linear-gradient(135deg, hsl(44, 100%, 95%), hsl(4, 77%, 90%));
+  }
+
+  .path-glow {
+    filter: drop-shadow(0 0 8px hsl(44, 100%, 59%)) drop-shadow(0 0 20px hsla(44, 100%, 59%, 0.4));
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px hsla(44, 100%, 59%, 0.3), 0 0 30px hsla(44, 100%, 59%, 0.15), 0 0 60px hsla(44, 100%, 59%, 0.05);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsla(44, 100%, 59%, 0.5), 0 0 20px hsla(44, 100%, 59%, 0.3);
+  }
+
+  .stat-value {
+    @apply text-2xl font-mono font-semibold tabular-nums;
+    color: hsl(var(--surface-900));
+  }
+
+  .stat-label {
+    @apply text-[10px] uppercase tracking-wider font-bold;
+    color: hsl(var(--surface-500));
+  }
+
+  .stat-unit {
+    @apply text-xs font-medium;
+    color: hsl(var(--primary));
+  }
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--surface-300));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--surface-400));
+}
+
+/* Scan animation for AI import */
+@keyframes scan-line {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan {
+  animation: scan-line 2s ease-in-out infinite alternate;
+}
+
+/* Progress bar for imports */
+@keyframes progress-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-progress {
+  animation: progress-sweep 1.5s ease-in-out infinite;
+}
